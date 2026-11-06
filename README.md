@@ -1,6 +1,6 @@
 # Detecção de comandos de voz para automação doméstica
 
-Projeto acadêmico de reconhecimento de comandos de voz curtos em português para controle de dispositivos domésticos (luz, ventilador e cortina). O repositório reúne o formulário usado para coletar as gravações e os notebooks de preparação dos dados e treinamento dos modelos.
+Projeto acadêmico das disciplinas de Mineração de Dados e Machine Learning e Redes Neurais e Aprendizado Profundo para reconhecimento de comandos de voz curtos em português para controle de dispositivos domésticos (luz, ventilador e cortina). O repositório reúne o formulário usado para coletar as gravações e os notebooks de preparação dos dados e treinamento dos modelos.
 
 > AJUDE NA COLETA DE DADOS SENDO UM VOLUNTÁRIO:
 https://coletadevoz.lucas-m-rizzi.workers.dev/
@@ -12,6 +12,24 @@ Os comandos reconhecidos são:
 | Luz | Acender a luz · Apagar a luz |
 | Ventilador | Ligar o ventilador · Desligar o ventilador |
 | Cortina | Abrir a cortina · Fechar a cortina |
+
+## Sobre o Projeto
+
+**Mineração de Dados e Machine Learning.** Tratamento, análise e padronização dos dados 
+e Avaliação classificadores clássicos (SVM e KNN) sobre características extraídas através do MFCC
+e mede o efeito de treinar com áudio limpo ou com aumento de dados por ruído.
+
+**Redes Neurais e Aprendizado Profundo.** Investiga se adicionar exemplos de fala fora do
+escopo ao treinamento reduz a falsa aceitação, isto é, o sistema executar um comando quando
+ninguém pediu, sem prejudicar o reconhecimento dos comandos válidos. Compara uma CNN sobre
+espectrogramas treinada só com os comandos e um limiar de rejeição contra a mesma CNN com
+uma classe extra de fala fora do escopo. O baseline utilizado como referência é uma regressão logística sobre MFCC.
+
+**Onde os projetos se encontram.** Os dois partem da mesma base: as gravações coletadas pelo
+grupo, as falas fora do escopo do Common Voice e os ruídos do MUSAN a 20, 10 e 0 dB. Também
+compartilham o pré-processamento (mono, 16 kHz, 2 s), a extração de MFCC e uma única divisão
+por locutor em treino, validação e teste (`saida/divisao.csv`). Assim, nenhum áudio de teste
+de um trabalho é usado no treino do outro, e os resultados podem ser comparados entre si.
 
 ## Estrutura
 
