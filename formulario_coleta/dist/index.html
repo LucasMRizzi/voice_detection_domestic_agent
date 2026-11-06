@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#24584d">
+  <meta name="description" content="Contribua com 12 gravações curtas para uma pesquisa sobre comandos de voz em português.">
+  <title>Coleta de voz em português</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="config.js" defer></script>
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <main class="container">
+    <header class="brand"><span class="brand-icon" aria-hidden="true">◖ııı◗</span><span>Projeto de pesquisa<span class="brand-sub">Comandos de voz em português</span></span></header>
+    <aside id="demo-notice" class="notice" hidden><strong>Modo de demonstração.</strong> Você pode testar as telas e o microfone. Nenhum dado é enviado; tudo é descartado ao recarregar a página.</aside>
+    <div id="error" class="error" role="alert" hidden></div>
+    <div id="loading" class="card loading" role="status" hidden>Recuperando sua participação…</div>
+
+    <section id="intro" class="card" aria-labelledby="intro-title">
+      <p class="eyebrow">Sua voz ajuda a pesquisa</p>
+      <h1 id="intro-title">Uma pequena contribuição.<br>Doze gravações.</h1>
+      <p class="lead">Ajude a estudar como computadores reconhecem comandos de voz em português, mesmo com ruído.</p>
+      <div class="facts"><span><strong>6 frases</strong> do dia a dia</span><span><strong>2 vezes</strong> cada frase</span><span><strong>3–5 min</strong> aproximadamente</span></div>
+      <form id="participant-form">
+        <h2>Primeiro, um pouco sobre você</h2>
+        <label for="name">Nome</label>
+        <input id="name" name="name" type="text" autocomplete="name" placeholder="Como você se chama?" minlength="2" maxlength="100" required>
+        <div class="field-row">
+          <div><label for="sex">Sexo</label><select id="sex" name="sex" required><option value="">Selecione</option><option value="feminino">Feminino</option><option value="masculino">Masculino</option><option value="intersexo">Intersexo</option><option value="nao_informado">Prefiro não informar</option></select></div>
+          <div><label for="age">Idade</label><input id="age" name="age" type="number" inputmode="numeric" min="1" max="120" step="1" placeholder="Em anos" required></div>
+        </div>
+        <label class="consent"><input id="consent" type="checkbox" required><span>Autorizo o uso dos meus dados e gravações neste projeto acadêmico. O acesso será restrito à equipe de pesquisa, sem publicação dos áudios ou dos meus dados pessoais.</span></label>
+        <button id="start" class="primary full" type="submit">Começar minha contribuição <span aria-hidden="true">→</span></button>
+        <p class="small center">Você poderá ouvir e refazer cada gravação antes de enviá-la.</p>
+      </form>
+    </section>
+
+    <section id="recorder-panel" class="card" aria-labelledby="record-title" hidden>
+      <div class="step-top"><span class="eyebrow" id="round-label">Rodada 1 de 2</span><span id="step-count" class="small">0 de 12 enviadas</span></div>
+      <progress id="progress" value="0" max="12" aria-label="Gravações enviadas"></progress>
+      <h1 id="record-title" tabindex="-1">Vamos gravar sua voz</h1>
+      <p class="lead compact">Leia a frase abaixo em voz natural. Espere um instante antes e depois de falar.</p>
+      <div class="phrase-box"><span id="repeat-label" class="eyebrow">Primeira gravação desta frase</span><p id="phrase">“Acender a luz”</p><span class="phrase-note">Leia apenas a frase em destaque</span></div>
+      <div id="record-indicator" class="record-indicator"><span id="record-dot" aria-hidden="true"></span><span id="record-status" role="status" aria-live="polite">Pronto para gravar</span><span id="timer" aria-label="Tempo de gravação">00:00</span></div>
+      <button id="record" class="primary full" type="button"><span aria-hidden="true">●</span> Gravar áudio</button>
+      <div id="review" hidden><audio id="audio" controls preload="metadata" aria-label="Ouvir sua gravação"></audio><div class="actions"><button id="redo" class="secondary" type="button">Gravar novamente</button><button id="send" class="primary" type="button">Enviar e continuar →</button></div></div>
+      <p class="small tip">Fale perto do aparelho, sem encostar no microfone. Cada áudio pode ter até 10 segundos.</p>
+      <details class="details"><summary>Quais frases vou gravar?</summary><ol><li>Acender a luz</li><li>Apagar a luz</li><li>Ligar o ventilador</li><li>Desligar o ventilador</li><li>Abrir a cortina</li><li>Fechar a cortina</li></ol><p class="small">Você repetirá essas mesmas seis frases na segunda rodada.</p></details>
+      <button id="pause" class="text-button" type="button">Pausar participação</button>
+    </section>
+
+    <section id="paused" class="card center" hidden><p class="eyebrow">Uma pausa é bem-vinda</p><h1 tabindex="-1">Continue quando puder</h1><p id="pause-message" class="lead">As gravações enviadas estão salvas. Volte neste mesmo navegador para continuar.</p><button id="resume" class="primary" type="button">Continuar gravações</button></section>
+    <section id="complete" class="card center" hidden><div class="success-icon" aria-hidden="true">✓</div><p class="eyebrow">Participação concluída</p><h1 tabindex="-1">Obrigado por emprestar sua voz!</h1><p id="complete-message" class="lead">Suas 12 gravações foram recebidas. Sua contribuição ajuda nossa pesquisa.</p><div class="summary-count"><strong>12 / 12</strong><span>gravações concluídas</span></div><p class="small">Código da participação: <strong id="participant-code"></strong></p><button id="new-person" class="secondary" type="button">Outra pessoa vai participar</button></section>
+    <footer>Coleta para pesquisa acadêmica · Português brasileiro</footer>
+  </main>
+</body>
+</html>
