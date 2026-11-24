@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comandos de Voz em Português</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=IBM+Plex+Mono:wght@400&display=swap">
+<style>
+  :root { --navy:#12306A; --blue:#2563C9; --pale:#E3ECFA; --soft:#F2F6FC; --ink:#2B3446; --muted:#6B7690; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Jost',sans-serif; color:var(--ink); background:#fff; min-height:100vh; display:grid; grid-template-columns:1.1fr 0.9fr; }
+  main { padding:clamp(1.5rem,6vw,6rem); padding-bottom:clamp(6rem,14vh,9rem); display:flex; flex-direction:column; justify-content:center; gap:clamp(1rem,3vh,2rem); position:relative; }
+  .kicker { font-family:'IBM Plex Mono',monospace; font-size:0.8rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--blue); }
+  h1 { font-weight:300; color:var(--navy); font-size:clamp(2rem,4.5vw,3.8rem); line-height:1.05; }
+  .sub { color:var(--blue); font-size:clamp(1rem,1.6vw,1.3rem); }
+  .cards { display:grid; gap:1rem; margin-top:0.5rem; }
+  .card { display:flex; justify-content:space-between; align-items:center; gap:1rem; padding:1.2rem 1.4rem; border:1px solid var(--pale);
+          border-radius:16px; background:#fff; box-shadow:0 8px 30px rgba(18,48,106,.06); text-decoration:none; color:inherit;
+          transition:transform .4s cubic-bezier(.16,1,.3,1), border-color .3s, box-shadow .3s; }
+  .card:hover { transform:translateY(-3px); border-color:#8FB1E8; box-shadow:0 14px 40px rgba(18,48,106,.12); }
+  .card .lab { font-family:'IBM Plex Mono',monospace; font-size:0.75rem; color:var(--blue); text-transform:uppercase; letter-spacing:.08em; }
+  .card .t { font-size:1.3rem; color:var(--navy); font-weight:400; }
+  .card .d { font-size:0.95rem; color:var(--muted); }
+  .card .go { font-size:1.4rem; color:var(--blue); }
+  .links { display:flex; gap:.6rem; flex-wrap:wrap; }
+  .links a { font-family:'IBM Plex Mono',monospace; font-size:.8rem; color:var(--navy); text-decoration:none; border:1px solid var(--pale);
+             background:var(--soft); padding:.35em .9em; border-radius:999px; }
+  .links a:hover { border-color:#8FB1E8; }
+  .authors { font-size:.9rem; color:var(--muted); }
+  aside { background:url('capa.jpg') center/cover no-repeat; }
+  .rings { position:absolute; left:clamp(1.5rem,6vw,6rem); bottom:1.5rem; display:flex; }
+  .rings span { width:56px; aspect-ratio:1; border:1.6px solid var(--navy); border-radius:50%; margin-left:-20px; }
+  .rings span:first-child { margin-left:0; }
+  @media (max-width:800px) { body { grid-template-columns:1fr; } aside, .rings { display:none; } }
+</style>
+</head>
+<body>
+<main>
+  <div class="kicker">Projeto final · 2026/2</div>
+  <h1>Reconhecimento de comandos de voz em português</h1>
+  <p class="sub">Apresentações das disciplinas de Redes Neurais e de Machine Learning</p>
+  <div class="cards">
+    <a class="card" href="apres_rn/">
+      <div><div class="lab">Redes Neurais</div><div class="t">CNN e a classe de fala fora do escopo</div>
+      <div class="d">Apresentação interativa · use as setas para navegar</div>
+      <div class="d">Daniel Urbani, Lucas Moreira Rizzi e Pedro Novaes Neto</div></div><span class="go">→</span>
+    </a>
+    <a class="card" href="apres_ml/apresentacao_ml.pdf">
+      <div><div class="lab">Machine Learning</div><div class="t">MFCC, KNN e SVM sob ruído</div>
+      <div class="d">Apresentação em PDF</div>
+      <div class="d">Lucas Moreira Rizzi e Pedro Novaes Neto</div></div><span class="go">→</span>
+    </a>
+  </div>
+  <div class="links"><a href="apres_rn/apresentacao_rn.pdf">Redes Neurais em PDF</a></div>
+
+</main>
+<aside></aside>
+</body>
+</html>
