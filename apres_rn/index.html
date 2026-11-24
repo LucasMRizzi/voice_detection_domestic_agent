@@ -546,16 +546,16 @@ strong { font-weight: 600; color: var(--navy); }
             </div>
             <div class="visual-col">
                 <div class="kpis" style="grid-template-columns: 1fr; width: 100%; max-width: 420px;">
-                    <div class="kpi reveal right d4"><div class="k">Macro-F1 dos comandos · limpo</div><div class="v">0,40</div></div>
-                    <div class="kpi reveal right d5"><div class="k">Falsa aceitação · limpo</div><div class="v">48%<small>das falas inválidas</small></div></div>
-                    <div class="kpi reveal right d6"><div class="k">Falsa rejeição · limpo</div><div class="v">44%<small>dos comandos válidos</small></div></div>
+                    <div class="kpi reveal right d4"><div class="k">Macro-F1 dos comandos · limpo · teste</div><div class="v">0,51</div></div>
+                    <div class="kpi reveal right d5"><div class="k">Falsa aceitação · limpo · teste</div><div class="v">53%<small>das falas inválidas</small></div></div>
+                    <div class="kpi reveal right d6"><div class="k">Falsa rejeição · limpo · teste</div><div class="v">41%<small>dos comandos válidos</small></div></div>
                 </div>
             </div>
         </div>
     </div>
     <div class="rings bl decorative"><span></span><span></span></div>
     <script type="application/json" class="slide-notes">
-    {"title":"O baseline","script":"Nosso ponto de partida é uma regressão logística sobre as estatísticas de MFCC, treinada só com os comandos e com um limiar de confiança para rejeitar o resto. Na validação, com áudio limpo, ela chega a macro-F1 de 0,40, aceita quase metade das falas inválidas e ainda descarta 44% dos comandos verdadeiros.","notes":["Regressão logística sobre 52 estatísticas de MFCC","Só comandos + limiar escolhido na validação","Limpo: F1 0,40, FA 48%, FR 44%"]}
+    {"title": "O baseline", "script": "Nosso ponto de partida é uma regressão logística sobre as estatísticas de MFCC, treinada só com os comandos e com um limiar de confiança para rejeitar o resto. No teste, com áudio limpo, ela chega a macro-F1 de 0,51, aceita mais da metade das falas inválidas e ainda descarta 41% dos comandos verdadeiros.", "notes": ["Regressão logística sobre 52 estatísticas de MFCC", "Só comandos + limiar escolhido na validação", "Teste, limpo: F1 0,51, FA 53%, FR 41%"]}
     </script>
 </div>
 
@@ -665,7 +665,7 @@ strong { font-weight: 600; color: var(--navy); }
     <div class="slide-content">
         <div class="stack">
             <div>
-                <div class="kicker reveal d1">Resultados · validação</div>
+                <div class="kicker reveal d1">Resultados · teste</div>
                 <h2 class="reveal d2">Desempenho por nível de ruído</h2>
                 <p class="sub reveal d3">A CNN B lidera em reconhecimento e quase não rejeita comandos válidos</p>
             </div>
@@ -673,7 +673,7 @@ strong { font-weight: 600; color: var(--navy); }
         </div>
     </div>
     <script type="application/json" class="slide-notes">
-    {"title":"Desempenho por ruído","script":"Aqui estão as três métricas nas quatro condições. A CNN B, em vermelho, tem o maior macro-F1 em todas, e mesmo a 0 dB fica acima do baseline no áudio limpo. Na falsa rejeição, à direita, ela descarta poucos comandos válidos, enquanto o baseline e a CNN A rejeitam metade ou mais.","notes":["CNN B com maior F1 em todas as condições","CNN B a 0 dB (0,59) supera o baseline limpo (0,40)","FR da CNN B entre 6% e 29%; A e baseline acima de 44%"]}
+    {"title": "Desempenho por ruído", "script": "Estes são os resultados no conjunto de teste, consultado uma única vez. A CNN B, em vermelho, tem o maior macro-F1 em todas as condições, e mesmo a 0 dB fica acima do baseline no áudio limpo. Na falsa rejeição, à direita, ela descarta poucos comandos válidos, enquanto o baseline e a CNN A rejeitam entre 41% e 76%.", "notes": ["Teste consultado uma única vez", "CNN B com maior F1 em todas as condições", "CNN B a 0 dB (0,62) supera o baseline limpo (0,51)", "FR da CNN B entre 6% e 17%"]}
     </script>
 </div>
 
@@ -684,21 +684,21 @@ strong { font-weight: 600; color: var(--navy); }
             <div>
                 <div class="kicker reveal d1">Baseline → CNN B</div>
                 <h2 class="reveal d2">O ganho em números</h2>
-                <p class="sub reveal d3">Áudio limpo e ruído forte, média de 3 sementes</p>
+                <p class="sub reveal d3">Conjunto de teste · áudio limpo e ruído forte · média de 3 sementes</p>
             </div>
             <div class="kpis">
-                <div class="kpi reveal d4"><div class="k">Macro-F1 · limpo</div><div class="v">0,40 <span class="to">→ 0,69</span></div></div>
-                <div class="kpi reveal d5"><div class="k">Falsa aceitação · limpo</div><div class="v">48% <span class="to">→ 4%</span></div></div>
-                <div class="kpi reveal d6"><div class="k">Falsa rejeição · limpo</div><div class="v">44% <span class="to">→ 8%</span></div></div>
-                <div class="kpi reveal d5"><div class="k">Macro-F1 · 0 dB</div><div class="v">0,22 <span class="to">→ 0,59</span></div></div>
-                <div class="kpi reveal d6"><div class="k">Falsa aceitação · 0 dB</div><div class="v">26% <span class="to">→ 19%</span></div></div>
-                <div class="kpi reveal d7"><div class="k">Falsa rejeição · 0 dB</div><div class="v">62% <span class="to">→ 29%</span></div></div>
+                <div class="kpi reveal d4"><div class="k">Macro-F1 · limpo</div><div class="v">0,51 <span class="to">→ 0,79</span></div></div>
+                <div class="kpi reveal d5"><div class="k">Falsa aceitação · limpo</div><div class="v">53% <span class="to">→ 6%</span></div></div>
+                <div class="kpi reveal d6"><div class="k">Falsa rejeição · limpo</div><div class="v">41% <span class="to">→ 6%</span></div></div>
+                <div class="kpi reveal d5"><div class="k">Macro-F1 · 0 dB</div><div class="v">0,19 <span class="to">→ 0,62</span></div></div>
+                <div class="kpi reveal d6"><div class="k">Falsa aceitação · 0 dB</div><div class="v">46% <span class="to">→ 15%</span></div></div>
+                <div class="kpi reveal d7"><div class="k">Falsa rejeição · 0 dB</div><div class="v">56% <span class="to">→ 17%</span></div></div>
             </div>
             <div class="figure"><img class="fig reveal d8" style="max-height: min(18vh, 170px);" src="assets/rn_tabela_resumo.png" alt="Tabela-resumo das métricas"></div>
         </div>
     </div>
     <script type="application/json" class="slide-notes">
-    {"title":"O ganho em números","script":"Comparando o baseline com a CNN B: no áudio limpo, o macro-F1 sobe de 0,40 para 0,69, a falsa aceitação cai de 48% para 4% e a falsa rejeição de 44% para 8%. No ruído mais forte, o F1 mais que dobra e o sistema rejeita metade dos comandos válidos a menos.","notes":["Limpo: F1 0,40 → 0,69; FA 48% → 4%; FR 44% → 8%","0 dB: F1 0,22 → 0,59; FA 26% → 19%; FR 62% → 29%"]}
+    {"title": "O ganho em números", "script": "No teste, comparando o baseline com a CNN B: no áudio limpo, o macro-F1 sobe de 0,51 para 0,79, a falsa aceitação cai de 53% para 6% e a falsa rejeição de 41% para 6%. No ruído mais forte, o F1 mais que triplica, de 0,19 para 0,62, e a falsa aceitação cai de 46% para 15%.", "notes": ["Limpo: F1 0,51 → 0,79; FA 53% → 6%; FR 41% → 6%", "0 dB: F1 0,19 → 0,62; FA 46% → 15%; FR 56% → 17%"]}
     </script>
 </div>
 
@@ -710,14 +710,14 @@ strong { font-weight: 600; color: var(--navy); }
                 <div class="kicker reveal d1">Falsa aceitação</div>
                 <h2 class="reveal d2">Quantas falas inválidas passam</h2>
                 <p class="reveal d3">No limpo e a 20 dB, a CNN B aceita bem menos falas inválidas que a A.</p>
-                <p class="reveal d4">A 10 e 0 dB, a CNN A tem FA menor, mas <strong>só porque rejeita de 61% a 76% dos comandos válidos</strong>: o limiar dela precisou subir para perto de 1.</p>
+                <p class="reveal d4">A 10 e 0 dB, a CNN A tem FA menor, mas <strong>só porque rejeita de 60% a 76% dos comandos válidos</strong>: o limiar dela precisou subir para perto de 1.</p>
             </div>
             <div class="visual-col"><img class="fig reveal right d3" src="assets/rn_barras_fa.png" alt="Falsa aceitação por condição"></div>
         </div>
     </div>
     <div class="rings bl decorative"><span></span><span></span></div>
     <script type="application/json" class="slide-notes">
-    {"title":"Falsa aceitação","script":"Olhando só a falsa aceitação: no áudio limpo e a 20 dB, a CNN B deixa passar muito menos falas inválidas que a CNN A. Nos ruídos fortes, a CNN A parece melhor, mas isso acontece porque ela está rejeitando quase todos os comandos. O limiar dela teve de subir para perto de 1.","notes":["Limpo: FA cai de 22% (A) para 4% (B)","20 dB: de 19% para 13%","Ruído forte: A tem FA menor ao custo de rejeitar a maioria dos comandos"]}
+    {"title": "Falsa aceitação", "script": "Olhando só a falsa aceitação no teste: no áudio limpo e a 20 dB, a CNN B deixa passar menos falas inválidas que a CNN A. Nos ruídos fortes, a CNN A parece melhor, mas isso acontece porque ela está rejeitando a maioria dos comandos. O limiar dela teve de subir para perto de 1. O baseline aceita perto de metade das falas inválidas em todas as condições.", "notes": ["Limpo: FA cai de 20% (A) para 6% (B)", "20 dB: de 19% para 16%", "Ruído forte: A tem FA menor ao custo de rejeitar 60% a 76% dos comandos", "Baseline aceita perto de metade das falas inválidas"]}
     </script>
 </div>
 
@@ -726,7 +726,7 @@ strong { font-weight: 600; color: var(--navy); }
     <div class="slide-content">
         <div class="stack">
             <div>
-                <div class="kicker reveal d1">Matrizes de confusão · áudio limpo</div>
+                <div class="kicker reveal d1">Matrizes de confusão · áudio limpo · teste</div>
                 <h2 class="reveal d2">Para onde vai cada áudio</h2>
                 <p class="sub reveal d3">A coluna “rejeitar” mostra o limiar em ação</p>
             </div>
@@ -734,7 +734,7 @@ strong { font-weight: 600; color: var(--navy); }
         </div>
     </div>
     <script type="application/json" class="slide-notes">
-    {"title":"Matrizes de confusão no limpo","script":"Cada linha é o que foi dito e cada coluna é a decisão do sistema. No baseline e na CNN A, a coluna rejeitar está cheia de vermelho: muitos comandos válidos são descartados. Na CNN B, os acertos se concentram na diagonal, e 96% das falas fora do escopo são rejeitadas.","notes":["Baseline e CNN A rejeitam muitos comandos válidos","CNN B concentra acertos na diagonal","CNN B rejeita 96% das falas fora do escopo"]}
+    {"title": "Matrizes de confusão no limpo", "script": "Cada linha é o que foi dito e cada coluna é a decisão do sistema. No baseline e na CNN A, a coluna rejeitar está cheia de vermelho: muitos comandos válidos são descartados. Na CNN B, os acertos se concentram na diagonal, e 94% das falas fora do escopo são rejeitadas.", "notes": ["Baseline e CNN A rejeitam muitos comandos válidos", "CNN B concentra acertos na diagonal", "CNN B rejeita 94% das falas fora do escopo"]}
     </script>
 </div>
 
@@ -746,17 +746,17 @@ strong { font-weight: 600; color: var(--navy); }
                 <div class="kicker reveal d1">CNN B em detalhe</div>
                 <h2 class="reveal d2">O que ela acerta e onde erra</h2>
                 <ul class="olist">
-                    <li class="reveal d3"><strong>96%</strong> das falas fora do escopo são rejeitadas.</li>
-                    <li class="reveal d4"><strong>“Acender luz”</strong> é reconhecido em 90% das vezes.</li>
-                    <li class="reveal d5">A maior confusão é entre <strong>“ligar” e “desligar” o ventilador</strong> (35%): as palavras diferem só no início.</li>
-                    <li class="reveal d6">“Fechar cortina” às vezes vira “abrir cortina” (15%).</li>
+                    <li class="reveal d3"><strong>94%</strong> das falas fora do escopo são rejeitadas.</li>
+                    <li class="reveal d4">Todos os comandos têm acerto entre <strong>67% e 85%</strong>; “apagar luz” é o mais reconhecido.</li>
+                    <li class="reveal d5">“Desligar ventilador” às vezes vira <strong>“ligar ventilador”</strong> (13%): as palavras diferem só no início.</li>
+                    <li class="reveal d6">“Fechar cortina” é o mais difícil: 17% vão para “acender luz”.</li>
                 </ul>
             </div>
-            <div class="visual-col"><img class="fig reveal right d3" style="max-height: min(70vh, 660px);" src="assets/rn_confusao_cnnb_limpo.png" alt="Matriz de confusão da CNN B no áudio limpo"></div>
+            <div class="visual-col"><img class="fig reveal right d3" style="max-height: min(70vh, 660px);" src="assets/rn_confusao_cnnb_limpo.png" alt="Matriz de confusão da CNN B no áudio limpo (teste)"></div>
         </div>
     </div>
     <script type="application/json" class="slide-notes">
-    {"title":"CNN B em detalhe","script":"Ampliando a CNN B: ela rejeita 96% das falas que não são comandos e reconhece acender luz em 90% das vezes. Os erros que sobram fazem sentido: ligar e desligar o ventilador se confundem em 35% dos casos, porque a diferença está só no começo da palavra. Fechar e abrir cortina também se misturam um pouco.","notes":["96% das falas fora do escopo rejeitadas","Acender luz: 90% de acerto","Maior confusão: ligar × desligar ventilador (35%)","Fechar × abrir cortina: 15%"]}
+    {"title": "CNN B em detalhe", "script": "Ampliando a CNN B no teste: ela rejeita 94% das falas que não são comandos, e todos os comandos ficam entre 67% e 85% de acerto, com apagar luz no topo. Os erros que sobram fazem sentido: desligar ventilador às vezes vira ligar, porque a diferença está só no começo da palavra, e fechar cortina é o comando mais confundido.", "notes": ["94% das falas fora do escopo rejeitadas", "Acerto por comando entre 67% e 85%", "Desligar → ligar ventilador: 13%", "Fechar cortina é o mais difícil"]}
     </script>
 </div>
 
@@ -765,7 +765,7 @@ strong { font-weight: 600; color: var(--navy); }
     <div class="slide-content">
         <div class="stack">
             <div>
-                <div class="kicker reveal d1">Matrizes de confusão · 0 dB</div>
+                <div class="kicker reveal d1">Matrizes de confusão · 0 dB · teste</div>
                 <h2 class="reveal d2">Com ruído tão forte quanto a voz</h2>
                 <p class="sub reveal d3">A CNN B continua reconhecendo; as outras quase só rejeitam ou erram</p>
             </div>
@@ -773,7 +773,7 @@ strong { font-weight: 600; color: var(--navy); }
         </div>
     </div>
     <script type="application/json" class="slide-notes">
-    {"title":"Matrizes a 0 dB","script":"Com o ruído tão alto quanto a voz, o baseline e a CNN A acertam poucos comandos. A CNN B ainda mantém a diagonal visível, de 38% a 71% de acerto, e continua rejeitando 81% das falas fora do escopo.","notes":["0 dB: ruído com a mesma potência da fala","CNN B: acertos de 38% a 71% por comando","CNN B rejeita 81% das falas fora do escopo"]}
+    {"title": "Matrizes a 0 dB", "script": "Com o ruído tão alto quanto a voz, o baseline e a CNN A acertam poucos comandos. A CNN B ainda mantém a diagonal visível, de 50% a 69% de acerto, e continua rejeitando 85% das falas fora do escopo.", "notes": ["0 dB: ruído com a mesma potência da fala", "CNN B: acertos de 50% a 69% por comando", "CNN B rejeita 85% das falas fora do escopo"]}
     </script>
 </div>
 
@@ -782,7 +782,7 @@ strong { font-weight: 600; color: var(--navy); }
     <div class="slide-content">
         <div class="split">
             <div class="text-col">
-                <div class="kicker reveal d1">Visão geral</div>
+                <div class="kicker reveal d1">Visão geral · teste</div>
                 <h2 class="reveal d2">Reconhecer bem e aceitar pouco</h2>
                 <p class="reveal d3">Cada ponto é um modelo em uma condição de ruído. O ideal é o canto superior esquerdo.</p>
                 <p class="reveal d4">A <strong>CNN B</strong> ocupa sozinha a região de F1 alto e FA baixa. O baseline fica no canto oposto.</p>
@@ -801,17 +801,17 @@ strong { font-weight: 600; color: var(--navy); }
     <div class="slide-content">
         <div class="split">
             <div class="text-col">
-                <div class="kicker reveal d1">Critério definido no M1</div>
+                <div class="kicker reveal d1">Critério definido no M1 · teste</div>
                 <h2 class="reveal d2">A classe “fora” trouxe vantagem?</h2>
                 <p class="reveal d3">Regra: reduzir a FA em <strong>≥ 2 pp</strong> em relação à CNN A sem perder mais de 2 pp de macro-F1.</p>
-                <p class="reveal d4"><strong>Limpo e 20 dB:</strong> vantagem clara. <strong>10 e 0 dB:</strong> pela regra, não, embora o F1 suba de 22 a 29 pp.</p>
+                <p class="reveal d4"><strong>Limpo e 20 dB:</strong> vantagem clara. <strong>10 e 0 dB:</strong> pela regra, não, embora o F1 suba 27 e 30 pp.</p>
                 <p class="reveal d5 muted">A regra compara modelos em pontos de operação diferentes: a CNN A só tem FA baixa no ruído forte porque rejeita a maioria dos comandos.</p>
             </div>
             <div class="visual-col"><img class="fig reveal right d3" src="assets/rn_criterio_m1.png" alt="Critério do M1 por condição"></div>
         </div>
     </div>
     <script type="application/json" class="slide-notes">
-    {"title":"Critério do M1","script":"Na proposta, definimos que a classe fora traria vantagem se reduzisse a falsa aceitação em pelo menos dois pontos sem perder mais de dois pontos de F1. No limpo e a 20 dB, a vantagem é clara. A 10 e 0 dB, pela letra da regra, não, mesmo com o F1 subindo mais de 20 pontos. Reportamos isso como foi registrado, e explicamos que a CNN A só tem falsa aceitação baixa nesses casos porque rejeita quase tudo.","notes":["Regra: −2 pp de FA sem perder mais de 2 pp de F1","Limpo e 20 dB: vantagem","10 e 0 dB: sem vantagem pela regra, F1 +22 a +29 pp","Modelos em pontos de operação diferentes"]}
+    {"title": "Critério do M1", "script": "Na proposta, definimos que a classe fora traria vantagem se reduzisse a falsa aceitação em pelo menos dois pontos sem perder mais de dois pontos de F1. No teste, a vantagem aparece no limpo, com 14 pontos a menos de falsa aceitação, e a 20 dB, com 3 pontos. A 10 e 0 dB, pela letra da regra, não, mesmo com o F1 subindo cerca de 30 pontos. Reportamos isso como foi registrado, e explicamos que a CNN A só tem falsa aceitação baixa nesses casos porque rejeita quase todos os comandos.", "notes": ["Regra: −2 pp de FA sem perder mais de 2 pp de F1", "Limpo (−14,4 pp) e 20 dB (−2,9 pp): vantagem", "10 e 0 dB: sem vantagem pela regra, F1 +27 e +30 pp", "Modelos em pontos de operação diferentes"]}
     </script>
 </div>
 
@@ -824,7 +824,7 @@ strong { font-weight: 600; color: var(--navy); }
                 <h2 class="reveal d2">O que aprendemos</h2>
                 <ul class="olist">
                     <li class="reveal d3"><strong>Só o limiar não basta.</strong> Treinada só com comandos, a rede fica confiante também nas falas inválidas.</li>
-                    <li class="reveal d4"><strong>A classe “fora” ensina a recusar</strong> sem descartar os comandos verdadeiros: FA de 4% e FR de 8% no limpo.</li>
+                    <li class="reveal d4"><strong>A classe “fora” ensina a recusar</strong> sem descartar os comandos verdadeiros: FA e FR de 6% no limpo (teste).</li>
                     <li class="reveal d5"><strong>A CNN supera o baseline</strong> em todas as condições, mas só depois de ajustar normalização, capacidade e regularização.</li>
                 </ul>
             </div>
@@ -834,7 +834,7 @@ strong { font-weight: 600; color: var(--navy); }
         </div>
     </div>
     <script type="application/json" class="slide-notes">
-    {"title":"Conclusões","script":"Três conclusões. Primeiro, o limiar sozinho não resolve: uma rede treinada só com comandos fica confiante em tudo o que ouve. Segundo, a classe fora ensina a recusar falas inválidas sem descartar os comandos verdadeiros. Terceiro, a rede convolucional supera o baseline em todas as condições, mas isso só aconteceu depois de investigar e corrigir o treino.","notes":["Limiar sozinho não separa comandos de falas inválidas","Classe fora: FA 4% e FR 8% no limpo","CNN supera o baseline após ajustes no treino"]}
+    {"title": "Conclusões", "script": "Três conclusões. Primeiro, o limiar sozinho não resolve: uma rede treinada só com comandos fica confiante em tudo o que ouve. Segundo, a classe fora ensina a recusar falas inválidas sem descartar os comandos verdadeiros: no teste, com áudio limpo, ela aceita só 6% das falas inválidas e rejeita só 6% dos comandos. Terceiro, a rede convolucional supera o baseline em todas as condições, mas isso só aconteceu depois de investigar e corrigir o treino.", "notes": ["Limiar sozinho não separa comandos de falas inválidas", "Classe fora: FA 6% e FR 6% no limpo (teste)", "CNN supera o baseline após ajustes no treino"]}
     </script>
 </div>
 
@@ -859,7 +859,7 @@ strong { font-weight: 600; color: var(--navy); }
                 <div class="ccard hl reveal right d4">
                     <span class="lab">Próximos passos</span>
                     <ul>
-                        <li>Avaliação final no conjunto de teste, uma única vez</li>
+                        <li>Comparar os modelos com a mesma taxa de falsa rejeição</li>
                         <li>Negativos difíceis gravados: “acende a vela”, “abre a janela”</li>
                         <li>Mais participantes e repetições</li>
                         <li>Modelos pré-treinados em fala</li>
@@ -870,7 +870,7 @@ strong { font-weight: 600; color: var(--navy); }
     </div>
     <div class="rings br decorative"><span></span><span></span><span></span></div>
     <script type="application/json" class="slide-notes">
-    {"title":"Limitações e próximos passos","script":"O trabalho tem limitações claras. São poucos participantes, as falas inválidas vêm de leituras do Common Voice, que são bem diferentes dos comandos, e os ajustes da rede foram escolhidos na mesma validação. Os próximos passos são a avaliação final no teste, gravar negativos difíceis, parecidos com os comandos, ampliar a coleta e testar modelos pré-treinados em fala.","notes":["Poucos participantes na validação e no teste","Negativos do Common Voice são fáceis","Próximo: teste final, negativos difíceis, mais dados, modelos pré-treinados"]}
+    {"title": "Limitações e próximos passos", "script": "O trabalho tem limitações claras. São poucos participantes, as falas inválidas vêm de leituras do Common Voice, que são bem diferentes dos comandos, e os ajustes da rede foram escolhidos na mesma validação. Os próximos passos são comparar os modelos com a mesma taxa de falsa rejeição, gravar negativos difíceis, parecidos com os comandos, ampliar a coleta e testar modelos pré-treinados em fala.", "notes": ["Poucos participantes na validação e no teste", "Negativos do Common Voice são fáceis", "Próximo: FR fixada, negativos difíceis, mais dados, modelos pré-treinados"]}
     </script>
 </div>
 
